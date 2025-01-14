@@ -2,20 +2,25 @@ import {useState} from 'react'
 import './App.css'
 
 function App() {
-  let [counter, setCounter]=useState(0);
+  let [count, setCounter]=useState(0);
   const addvalue = ()=>{
-    counter+=1;
-    setCounter(counter);
+    count+=1;
+    setCounter(count);
   }
 
   const decvalue = () => {
-    setCounter(counter-1);
+
+    //This code is for making counter only count positive clicks
+    // count<0?setCounter(0):
+
+    //We can remove above ternary operation to make the counter count positive number and negative numbers both
+    setCounter(count-1);
   }
 
   return (
     <>
     <h1>Counter Game!</h1>
-    <h2>Net Clicks:{counter}</h2>
+    <h2>Net Clicks:{count}</h2>
     <p>Make 1 million clicks and win $1,000,000</p>
     <br />
     <button
@@ -24,9 +29,9 @@ function App() {
     </button>
     <button
     onClick={decvalue}>
-    Value down</button>
+    Value DOWN</button>
     </>
   )
 }
 
-export default App
+export default App;
